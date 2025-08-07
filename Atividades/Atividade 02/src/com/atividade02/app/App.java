@@ -9,37 +9,53 @@ public class App {
          //variáveis:
          String nome;
          int idade, opcao;
-
-         do {
-            //menu
-            System.out.println("Informe seu nome:");
+            // menu 1
+               System.out.println("Informe seu nome:");
             nome = leia.nextLine();
             System.out.println("Informe sua idade:");
             idade = leia.nextInt();
-            System.out.println("Filme 1.");
-            System.out.println("Filme 2.");
-            System.out.println("Filme 3.");
-            System.out.println("Filme 4.");
-            System.out.println("Filme 5.");
+
+         do {
+            //menu 2
+            System.out.println();
+            System.out.println("1- Harry Potter e a Pedra Filosofal.");
+            System.out.println("2- Os Vingadores.");
+            System.out.println("3- Pantera Negra.");
+            System.out.println("4- Deadpool.");
+            System.out.println("5- Coringa.");
             System.out.println("Informe a sala de cinema desejada:");
             opcao = leia.nextInt();
             
-            if(opcao >= 1 && opcao <= 5)
+             if(opcao >= 1 && opcao <= 5)
             { if(opcao == 1 && idade >= 10){
-            System.out.println("Imprimindo o ingresso...");}
+            System.out.println(nome + " pode pegar seu ingresso...");
+                break;  
+            }
             else if(opcao == 2 && idade >= 12){
-                System.out.println("Imprimindo o ingresso...");
+                System.out.println(nome + " pode pegar seu ingresso...");
+                break;
             }
             else if(opcao == 3 && idade >= 14){
-                System.out.println("Imprimindo o ingresso...");
+                System.out.println(nome + " pode pegar seu ingresso...");
+                break;
             }
             else if(opcao == 4 && idade >= 16){
-                System.out.println("Imprimindo o ingresso...");
+                System.out.println(nome + " pode pegar seu ingresso...");
+                break;
             }
             else if(opcao == 5 && idade >= 18){
-                System.out.println("Imprimindo o ingresso...");
-            } 
-            } 
-         } while (// TODO);
+                System.out.println(nome + " pode pegar seu ingresso...");
+                break;
+            }
+                else if(opcao == 1 && idade < 10){
+                System.out.println(nome + " você não tem idade para ver nenhum filme do catálogo.");
+                break;
+            }
+            else{
+                System.out.println(nome + " você não tem a idade necessária para ver esse filme, selecione outro.");
+            }
+            }
+         } while (idade >= 10);
+         leia.close();
     }
 }

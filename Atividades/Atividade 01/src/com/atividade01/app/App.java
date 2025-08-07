@@ -15,6 +15,7 @@ public class App {
 
         // menu
         do {
+            System.out.println();
             System.out.println("1- Calcular IMC.");
             System.out.println("2- Sair do programa.");
             System.out.println("Informe a opção desejada:");
@@ -36,14 +37,14 @@ public class App {
                     else if(result >= 18.5 && result <=24.9) System.err.println(nome + " você está com o peso ideal.");
                     else if(result >= 25 && result <=29.9) System.err.println(nome + " você está acima do peso.");
                     else if(result >= 30 && result <=34.9) System.err.println(nome + " você está com obesidade grau 1.");
-                    else if(result >= 35 && result <=39.9) System.err.println(nome + " você está obesidade grau 2.");
+                    else if(result >= 35 && result <=39.9) System.err.println(nome + " você está com obesidade grau 2.");
                     else if(result >= 40) System.err.println(nome + " você está com obesidade mórbida.");
                 } 
+                else if (opcao != 2){
+                    System.out.println("Opção inválida.");
+                }
                 else{
                    System.out.println("Programa encerrado.");
-                }
-                if(opcao != 2){
-                    System.out.println("Opção inválida.");
                 }
             } while (opcao == 1);
         // fechar leia:

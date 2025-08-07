@@ -10,7 +10,7 @@ public class App {
         // declaração de variáveis:
         String nome;
         double peso, altura;
-        double result;
+        double result; // result = IMC
         int opcao;
 
         // menu
@@ -31,13 +31,13 @@ public class App {
                 peso = leia.nextDouble();
                 System.out.println("Informe sua altura:");
                 altura = leia.nextDouble();
-                  result = peso/(altura*altura);
-                    if( result <= 18.4) System.out.println(nome + " seu IMC é: " + result + " e você está abaixo do peso.");
-                    else if(result >= 18.5 && result <=24.9) System.err.println(nome + " seu IMC é: " + result + " e você com o peso ideal.");
-                    else if(result >= 25 && result <=29.9) System.err.println(nome + " seu IMC é: " + result + " e você está acima do peso.");
-                    else if(result >= 30 && result <=34.9) System.err.println(nome + " seu IMC é: " + result + " e você está com obesidade grau 1.");
-                    else if(result >= 35 && result <=39.9) System.err.println(nome + " seu IMC é: " + result + " e você está com obesidade grau 2.");
-                    else if(result >= 40) System.err.println(nome + " seu IMC é: " + result + " e você está com obesidade mórbida.");
+                  result = peso / (altura*altura); 
+                    if( result <= 18.4) System.out.println(nome + " seu IMC é: " + String.format("%.2f", result) + " e você está abaixo do peso.");
+                    else if(result >= 18.5 && result <=24.9) System.err.println(nome + " seu IMC é: " + String.format("%.2f", result) + " e você com o peso ideal.");
+                    else if(result >= 25 && result <=29.9) System.err.println(nome + " seu IMC é: " + String.format("%.2f", result) + " e você está acima do peso.");
+                    else if(result >= 30 && result <=34.9) System.err.println(nome + " seu IMC é: " + String.format("%.2f", result) + " e você está com obesidade grau 1.");
+                    else if(result >= 35 && result <=39.9) System.err.println(nome + " seu IMC é: " + String.format("%.2f", result) + " e você está com obesidade grau 2.");
+                    else if(result >= 40) System.err.println(nome + " seu IMC é: " + String.format("%.2f", result) + " e você está com obesidade mórbida.");
                 } 
                 else if (opcao != 2){
                     System.out.println("Opção inválida.");
@@ -45,7 +45,7 @@ public class App {
                 else{
                    System.out.println("Programa encerrado.");
                 }
-            } while (opcao == 1);
+            } while (opcao != 2);
         // fechar leia:
         leia.close();
     }

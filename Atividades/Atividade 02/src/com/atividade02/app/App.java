@@ -17,12 +17,11 @@ public class App {
 
          do {
             //menu 2
-            System.out.println();
-            System.out.println("1- Harry Potter e a Pedra Filosofal.");
-            System.out.println("2- Os Vingadores.");
-            System.out.println("3- Pantera Negra.");
-            System.out.println("4- Deadpool.");
-            System.out.println("5- Coringa.");
+            System.out.println("\n" + "1- Harry Potter e a Pedra Filosofal. (Idade mínima: 10 anos.)");
+            System.out.println("2- Os Vingadores. (Idade mínima: 12 anos.)");
+            System.out.println("3- Pantera Negra. (Idade mínima: 14 anos.)");
+            System.out.println("4- Deadpool. (Idade mínima: 16 anos.)");
+            System.out.println("5- Coringa. (Idade mínima: 18 anos.)");
             System.out.println("Informe a sala de cinema desejada:");
             opcao = leia.nextInt();
             
@@ -47,12 +46,12 @@ public class App {
                 System.out.println(nome + " pode pegar seu ingresso...");
                 break;
             }
-                else if(opcao == 1 && idade < 10){
+                else if(opcao >= 1 && idade < 10){
                 System.out.println(nome + " você não tem idade para ver nenhum filme do catálogo.");
                 break;
             }
             else{
-                System.out.println(nome + " você não tem a idade necessária para ver esse filme, selecione outro.");
+                System.out.println(nome + " você não tem a idade necessária para ver esse filme, selecione outro filme:");
             }
             }
          } while (idade >= 10);

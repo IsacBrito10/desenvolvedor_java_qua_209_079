@@ -1,0 +1,24 @@
+package com.lista.app;
+
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        // Scanner open
+        Scanner leia = new Scanner(System.in);
+       
+        // declaração de array:
+        String [] nomes = new String[10];
+
+        //laço de repetição:
+        for(int i = 0; i < nomes.length; i++){
+            System.out.println("Informe o " + (i + 1) + "° nome:");
+            nomes[i] = leia.nextLine();
+        }
+        for(String nome : nomes){
+            System.out.println(nome);
+        }
+        // leia close
+        leia.close();
+    }
+}

@@ -2,38 +2,31 @@ package com.atividade05.model;
 
 public class Carro {
     //atributos
-    private double valorE, valorG, resultado;
+    private double etanol, gasolina;
     
     // constructor
 
-    public Carro(double valorE, double valorG, double resultado, double etanol, double gasolina) {
-        this.valorE = valorE;
-        this.valorG = valorG;
-        this.resultado = resultado;
+    public Carro(double etanol, double gasolina, double resultado) {
+        this.etanol = etanol;
+        this.gasolina = gasolina;
     }
     
     // set e get
-    public double getValorE() {
-        return this.valorE;
+    public double getEtanol() {
+        return this.etanol;
     }
-    public void setValorE(double valorE) {
-        this.valorE = valorE;
+    public void setEtanol(double etanol) {
+        this.etanol = etanol;
     }
-    public double getValorG() {
-        return this.valorG;
+    public double getGasolina() {
+        return this.gasolina;
     }
-    public void setValorG(double valorG) {
-        this.valorG = valorG;
-    }
-    public double getResultado() {
-        return this.resultado;
-    }
-    public void setResultado(double resultado) {
-        this.resultado = resultado;
-    }
+    public void setGasolina(double gasolina) {
+        this.gasolina = gasolina;
+    }    
     // metodo
-        public double calculo(double valor){
-            resultado = valorG * (70/100);
-            return this.resultado;            
+        public String calculo(){
+            return (this.etanol >= this.gasolina * 0.7) ? "Não compensa utilizar Etanol. Utilize Gasolina."
+            : "Compensa utilizar etanol.";
         }
 }

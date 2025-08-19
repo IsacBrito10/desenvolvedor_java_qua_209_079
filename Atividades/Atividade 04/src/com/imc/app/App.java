@@ -9,7 +9,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         // instancia
         IMC imc = new IMC(0.0, 0.0, 0.0);
-
+        
         //variavel
         String[] opcoes = {"Calcular IMC", "Sair do programa"};
         Object opcao;

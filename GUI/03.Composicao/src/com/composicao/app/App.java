@@ -55,7 +55,7 @@ public class App {
                     JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case "Fazer saque.":
-                valor = (Double.parseDouble(JOptionPane.showInputDialog("Informe o valor do saque: R$ ")));
+                    valor = (Double.parseDouble(JOptionPane.showInputDialog("Informe o valor do saque: R$ ")));
                     JOptionPane.showMessageDialog(null,
                     "O saque foi efetuado com sucesso.\n Saldo atual: R$ " + conta.fazerSaque(valor),
                     "Saque.",

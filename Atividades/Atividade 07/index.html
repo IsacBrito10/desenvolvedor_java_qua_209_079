@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Autor nome: -->
+     <meta name="autor" content="Isac Da Costa Brito" />
+
+    <!-- Indexar a página nos mecanismos de busca -->
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h1>Formulário:</h1>
+    <hr />
+    <form method="">
+        <label for="nome">Nome:</label><br />
+        <input type="text" placeholder="Informe seu nome:" minlength="3" maxlength="32"/>
+        <br /><br />
+        
+        <label for="sobrenome">Sobrenome:</label><br />
+        <input type="text" placeholder="Informe seu sobrenome completo:" />
+        <br /><br />
+
+        <label for="dataNascimento">Data de Nascimento:</label> <br />
+        <input type="date" />
+        <br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="text" placeholder="Informe seu email:" />
+        <br /><br />
+
+        <label for="telefone">Telefone:</label><br />
+        <input type="tel" placeholder="Informe seu telefone:" />
+        <br /><br />
+
+        <label for="endereco">Endereço:</label><br />
+        <input type="text" placeholder="Informe seu endereço:" />
+        <br /><br />
+
+        <label for="genero">Genero:</label><br />
+        <input type="radio" name="genero" /> <span>Masculino.</span><br />
+        <input type="radio" name="genero" /> <span>Feminino.</span><br />
+        <input type="radio" name="genero" /> <span>Outro.</span><br />
+        <input type="radio" name="genero" /> <span>Prefiro não informar.</span><br />
+        <br /><br />
+
+        <label for="escolaridade">Escolaridade:</label><br />
+        <select>
+            <option name="escolaridade">Escolha uma opção...</option>
+            <option name="escolaridade">Ensino fundamental incompleto.</option>
+            <option name="escolaridade">Ensino Fundamental.</option>
+            <option name="escolaridade">Ensino Médio incompleto.</option>
+            <option name="escolaridade">Nível Médio.</option>
+            <option name="escolaridade">Nível Superior.</option>
+            <option name="escolaridade">Pós-Graduação.</option>
+            <option name="escolaridade">Mestrado.</option>
+            <option name="escolaridade">Doutorado.</option>
+        </select>
+        <br /><br />
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>

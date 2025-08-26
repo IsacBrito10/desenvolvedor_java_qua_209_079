@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CSS</title>
+
+    <!-- Linkando CSS -->
+     <link href="css/estilos.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+    <h1>Formulario com CSS</h1>
+    <hr />
+    <form method="">
+        <input type="text" placeholder="Nome"  class="nome"/>
+        <input type="text" placeholder="Sobrenome" class="sobrenome"/>
+        <input type="tel" placeholder="Telefone: (00) 00000-0000" class="telefone"/>
+        <input type="email" placeholder="Email: usuario@servidor.com" class="email" />
+        <select class="genero">
+            <option>Informe o gênero...</option>
+            <option>Masculino.</option>
+            <option>Feminino.</option>
+            <option>Não desejo informar.</option>
+            <option>Outro.</option>
+        </select>
+        <input type="text" placeholder="CEP: 00.000-000" class="cep" />
+        <input type="text" placeholder="Cidade" class="cidade"/>
+        <input type="text" placeholder="Endereço" class="endereco"/>
+        <select>
+            <option name="escolaridade">Informe seu Grau de escolaridade...</option>
+            <option name="escolaridade">Ensino fundamental incompleto.</option>
+            <option name="escolaridade">Ensino Fundamental.</option>
+            <option name="escolaridade">Ensino Médio incompleto.</option>
+            <option name="escolaridade">Nível Médio.</option>
+            <option name="escolaridade">Nível Superior.</option>
+            <option name="escolaridade">Pós-Graduação.</option>
+            <option name="escolaridade">Mestrado.</option>
+            <option name="escolaridade">Doutorado.</option>
+        </select>
+
+        <input type="text" placeholder="Profissão" class="profissao" />
+        <br />
+        <label>Marque os cursos que você já fez:</label> 
+        <br /> <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Pedagogia</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Direito</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Administração</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Enfermagem</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Sistemas de Informação</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Psicologia</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Contabilidade</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Educação Física</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Medicina</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Gestão de Pessoas</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Medicina</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Letras</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Engenharia de Software</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Ciências da Computação</span>
+        <br />
+        <input type="checkbox" name="cursos" class="checkbox"><span>Análise e Desenvolvimento de Sistemas</span>
+        <br /> 
+        <input type="checkbox" name="cursos" class="checkbox"><span>Outros</span>
+        <br /> 
+        <button type="submit" class="botao">Cadastrar</button>
+    </form>
+</body>
+</html>

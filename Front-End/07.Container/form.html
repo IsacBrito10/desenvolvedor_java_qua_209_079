@@ -48,26 +48,86 @@
 
     <!-- CONTAINER  -->  <!--CONTEÚDO DA PÁGINA--> 
     <div class="container">
-    <h1 style="text-align: center;">Formulário</h1>
-    <hr />
+        <h1 style="text-align: center;">Formulário</h1>
+        <hr />
         <form method="">
             <div class="row">
-                <div class="col 12 col-md-8">
+                <div class="col-12 col-md-6 col-lg-7">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nome completo:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                     </div>
                 </div>
-                <div class="col 12 col-md-4">
+                <div class="col-12 col-md-6 col-lg-5">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Data de nascimento:</span>
-                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CPF:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="000.000.000-00" minlength="14" maxlength="14" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Telefone:</span>
+                        <input type="tel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="(00) 00000-0000" minlength="14" maxlength="15" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+                        <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="usuario@gmail.com" required>
                     </div>
                 </div>
             </div>
+             <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Gênero:</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Informe seu Gênero...</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Outro</option>
+                            <option value="4">Desejo não informar.</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Estado Cívil:</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Informe seu Estado Cívil...</option>
+                            <option value="1">Solteiro.</option>
+                            <option value="2">Casado.</option>
+                            <option value="3">Viúvo.</option>
+                            <option value="4">Divorciado.</option>
+                        </select>
+                    </div>
+                </div>
+               <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Escolaridade:</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Informe sua Escolaridade...</option>
+                            <option value="1">Nível Fundamental.</option>
+                            <option value="2">Nível Médio.</option>
+                            <option value="3">Nível Superior.</option>
+                            <option value="4">Pós-Graduação.</option>
+                            <option value="5">Mestrado.</option>
+                            <option value="6">Doutorado.</option>
+                        </select>
+                    </div>
+                </div>
+             </div>
+            </div>    
+            </div>
         </form>
     </div>
-
     <!-- FIM DO CONTAINER -->
 
     <!-- SCRIPTS -->

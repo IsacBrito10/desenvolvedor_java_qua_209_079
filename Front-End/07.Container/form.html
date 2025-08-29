@@ -10,7 +10,9 @@
     <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg mb-5" data-bs-theme="dark" style="background-image: linear-gradient(to right, #000000, #ff0000, #000000)">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/401364_java_icon.png" alt="Ícone java" width="50" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,6 +53,8 @@
         <h1 style="text-align: center;">Formulário</h1>
         <hr />
         <form method="">
+
+            <!-- ROW 1 -->
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-7">
                     <div class="input-group mb-3">
@@ -64,6 +68,8 @@
                         <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                     </div>
                 </div>
+
+                <!-- ROW 2 -->
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="input-group mb-3">
@@ -77,14 +83,16 @@
                         <input type="tel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="(00) 00000-0000" minlength="14" maxlength="15" required>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-12 col-lg-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
                         <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="usuario@gmail.com" required>
                     </div>
                 </div>
             </div>
-             <div class="row">
+
+            <!-- ROW 3 -->
+            <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Gênero:</label>
@@ -109,7 +117,7 @@
                         </select>
                     </div>
                 </div>
-               <div class="col-12 col-md-6 col-lg-4">
+               <div class="col-12 col-md-12 col-lg-4">
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Escolaridade:</label>
                         <select class="form-select" id="inputGroupSelect01">
@@ -123,7 +131,27 @@
                         </select>
                     </div>
                 </div>
-             </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CEP:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="00.000-000" minlength="10" maxlength="10" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">UF:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" minlength="2" maxlength="2" required>
+                    </div>
+                </div>
+                 <div class="col-12 col-md-12 col-lg-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Município:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+                </div>
+            </div>
             </div>    
             </div>
         </form>

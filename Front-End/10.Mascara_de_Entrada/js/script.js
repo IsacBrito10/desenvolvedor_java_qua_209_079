@@ -2,7 +2,7 @@
 const cpfMask = document.querySelector('#cpf');
 const telefoneMask = document.querySelector('#telefone');
 const cepMask = document.querySelector('#cep');
-const form =document.querySelector('form');
+const form = document.querySelector('form');
 
 //arrow function
 const btn = () =>{

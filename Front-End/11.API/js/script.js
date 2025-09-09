@@ -64,6 +64,7 @@ pesquisaCep.addEventListener('blur', function() {
     }
 });
 
+// MASCARA TELEFONE
 telefoneMask.addEventListener('input', function() {
     this.value = this.value
         .replace(/\D/g, '')
@@ -72,6 +73,7 @@ telefoneMask.addEventListener('input', function() {
         .replace(/(-\d{4})\d+?$/, '$1');
 });
 
+//MASCARA CEP
 cepMask.addEventListener('input', function() {
     this.value = this.value
         .replace(/\D/g, '')
@@ -79,6 +81,7 @@ cepMask.addEventListener('input', function() {
         .replace(/(-\d{3})\d+?$/, '$1');
 });
 
+//BUTTON SUBMIT
 btn.addEventListener('submit', function(event) {
     event.preventDefault();
 

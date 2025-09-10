@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class TelasController {
-    @RequestMapping("index")
+    @RequestMapping("/")
     public String index() {
         return "index";
     }
-    @RequestMapping("cadastrar")
+    @RequestMapping("/cadastrar")
     public String cadastrar() {
         return "cadastrar";
     }

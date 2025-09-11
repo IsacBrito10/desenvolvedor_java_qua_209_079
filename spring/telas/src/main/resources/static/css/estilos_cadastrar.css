@@ -13,3 +13,8 @@ a{
     text-shadow: 1px 1px 5px #ffffff;
     color: #ffffff;
 }
+
+h2{
+    text-shadow: 1px 1px 5px #ffffff;
+    text-align: center;
+}

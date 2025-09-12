@@ -5,7 +5,7 @@ btn.addEventListener('submit', function(event){
     event.preventDefault();
 
     let nome = document.querySelector('#nome').value;
-    let tel = document.querySelector('#tel').value;
+    let telefone = document.querySelector('#telefone').value;
     let cep = document.querySelector('#cep').value;
     let estado = document.querySelector('#estado').value;
     let cidade = document.querySelector('#cidade').value;
@@ -14,9 +14,9 @@ btn.addEventListener('submit', function(event){
     let complemento = document.querySelector('#complemento').value;
     let numero = document.querySelector('#numero').value;
 
-    let result = `DADOS DO USUÁRIO:<br><br>
+    let result = `<br>DADOS DO USUÁRIO:<br><br>
     Nome: ${nome}<br>
-    Telefone: ${tel}<br>
+    Telefone: ${telefone}<br>
     CEP: ${cep}<br>
     Estado: ${estado}<br>
     Cidade: ${cidade}<br>

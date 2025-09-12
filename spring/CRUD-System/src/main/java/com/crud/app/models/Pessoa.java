@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Pessoa implements Serializable{
+public class Pessoa implements Serializable {
     // atributos
     private static final long serialVersionUID = 1L;
 
@@ -20,11 +20,7 @@ public class Pessoa implements Serializable{
     private String email;
 
     //constructor
-    public Pessoa(long idPessoa, String nome, String cpf, String email) {
-        this.idPessoa = idPessoa;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
+    public Pessoa() {
     }
 
     //get and set

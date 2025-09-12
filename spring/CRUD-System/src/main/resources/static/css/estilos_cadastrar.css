@@ -1,0 +1,94 @@
+/* Estilos gerais */
+body {
+    color: white;
+    background-color: #16161d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Botão */
+button {
+    color: #990000;
+    border: 2px solid #990000;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #990000;
+    color: white;
+    border-color: white;
+}
+
+/* INPUT GROUP - estilizando o container para parecer um único controle */
+
+.input-group {
+    max-width: 400px;
+    margin: 15px auto;
+    border: 2px solid #990000;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #330000;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+/* Quando o input dentro da input-group estiver focado, destacar o container */
+.input-group:focus-within {
+    border-color: #ff4d4d;
+    background-color: #990000;
+}
+
+/* Span do bootstrap (label da esquerda) */
+.input-group-text {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-weight: bold;
+    min-width: 140px;
+    justify-content: center;
+    padding: 10px 12px;
+    user-select: none;
+}
+
+/* Input bootstrap */
+.form-control {
+    background-color: transparent;
+    border: none;
+    color: white;        /* texto branco */
+    caret-color: white;  /* cursor branco piscando */
+    padding: 10px 12px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Placeholder */
+.form-control::placeholder {
+    color: white;
+}
+
+/* Hover na input-group (faz o efeito quando passar o mouse no container todo) */
+.input-group:hover {
+    background-color: #990000;
+    border-color: #ff4d4d;
+}
+
+/* Cursor pointer para o span */
+.input-group-text:hover {
+    cursor: white;
+   
+}
+
+/* Para remover o foco azul padrão do bootstrap no input e input branco */
+
+.form-control:focus {
+    box-shadow: none;
+    background-color: #990000; /* você já colocou */
+    color: white;              /* garantir que o texto no foco fique branco */
+    caret-color: white;        /* cursor branco no foco também */
+}

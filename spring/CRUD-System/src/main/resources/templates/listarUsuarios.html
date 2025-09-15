@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta name="author" content="Isac Da Costa Brito" />
@@ -10,6 +10,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="css/estilos_listar.css" rel="stylesheet" type="text/css" media="all">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container-fluid">
@@ -41,27 +42,26 @@
     <div class="container">
         <h1>LISTA DE USUÁRIOS</h1>
         <hr>
-        
         <div class="table-responsive">
             <table class="table-bordered align-middle">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>Email</th>
                         <th>CPF</th>
+                        <th>Email</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ronaldinho Gaucho</td>
-                        <td>ronaldinhocopadomundo@gmail.com</td>
-                        <td>123.456.789-00</td>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.idPessoa}"></td>
+                        <td th:text="${usuario.nome}"></td>
+                        <td th:text="${usuario.cpf}"></td>
+                        <td th:text="${usuario.email}"></td>
                         <td>
-                            <button class="btn-alterar me-2">Alterar</button>
-                            <button class="btn-excluir">Excluir</button>
+                            <button class="btn-alterar btn-sm me-2">Alterar</button>
+                            <button class="btn-excluir btn-sm">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
@@ -81,4 +81,5 @@
         crossorigin="anonymous"></script>
 
 </body>
+
 </html>

@@ -8,13 +8,13 @@
     <title>CRUD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/estilos_index.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/estilos_listar.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/java.png" alt="Ícone início" width="50" style="background-color: white;">
+                <img src="img/alterar.png" alt="Ícone Lista Usuário" width="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -24,22 +24,50 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/cadastrar">Cadastrar Pessoa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" are-current="page" href="/listarUsuarios">Lista de Usuários</a>
+                        <a class="nav-link active" are-current="page" href="#">Lista de Usuários</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <hr>
-             <h1>SISTEMA DE TELAS</h1>
-             <hr>
-                <img src="img/paisagem.jpg" alt="Imagem de Paisagem" style="text-align: center; margin: auto;">
+    <!-- CONTAINER -->
+    <div class="container">
+        <h1>LISTA DE USUÁRIOS</h1>
+        <hr>
+        
+        <div class="table-responsive">
+            <table class="table-bordered align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ronaldinho Gaucho</td>
+                        <td>ronaldinhocopadomundo@gmail.com</td>
+                        <td>123.456.789-00</td>
+                        <td>
+                            <button class="btn-alterar me-2">Alterar</button>
+                            <button class="btn-excluir">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -53,5 +81,4 @@
         crossorigin="anonymous"></script>
 
 </body>
-
 </html>

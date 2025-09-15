@@ -28,4 +28,8 @@ public class CrudController {
         csr.save(usuario);
         return "redirect:/";
     }
+    @RequestMapping(value="/listarUsuarios", method=RequestMethod.GET)
+    public String listarUsuarios(){
+        return "listarUsuarios";
+    }
 }

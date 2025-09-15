@@ -1,0 +1,94 @@
+/* Estilos gerais */
+body {
+    color: white;
+    background-color: #16161d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* Container */
+.container {
+    margin-top: 40px;
+}
+
+/* Tabela geral */
+.table-bordered {
+    width: 100%;
+    background-color: #330000;
+    color: white;
+    border: 2px solid #990000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Cabeçalho da tabela */
+.table-light th {
+    background-color: #990000 !important;
+    color: white !important;
+    border: none;
+}
+
+/* Células da tabela */
+.table-bordered td, 
+.table-bordered th {
+    padding: 12px 16px;
+    border: 1px solid #990000;
+}
+
+/* Linhas alternadas */
+.table-bordered tbody tr:nth-child(odd) {
+    background-color: #2a2a35;
+}
+
+.table-bordered tbody tr:nth-child(even) {
+    background-color: #330000;
+}
+
+/* === BOTÃO ALTERAR === */
+.btn-alterar {
+    color: white;
+    border: 3px solid white;
+    border-radius: 25px;
+    background-color: #ff9100;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-alterar:hover {
+    background-color: #ff9100;
+    color: #000000;
+    border-color: #000000;
+}
+
+/* === BOTÃO EXCLUIR === */
+.btn-excluir {
+    color: white;
+    border: 3px solid white;
+    border-radius: 25px;
+    background-color: #990000;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-excluir:hover {
+    background-color: #990000;
+    color: #000000;
+    border-color: #000000;
+}
+
+/* Responsividade */
+.table-responsive {
+    border-radius: 10px;
+    overflow: auto;
+    margin-top: 20px;
+}
+

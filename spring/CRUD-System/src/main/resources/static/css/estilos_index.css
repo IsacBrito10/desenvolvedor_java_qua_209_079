@@ -5,8 +5,26 @@ body{
     }
     h1{
         text-align: center;
+        border: solid 2px #990000;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        font-weight: bold;
     }
-    div{
-        text-align: center;
-        margin: auto;
+    h2{
+        border: solid 2px #990000;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        font-weight: bold;
+    }
+    img.img-fluid{
+        border: solid 5px #990000;
+    }
+    p{
+        font-size: 100%;
+        font-weight: bold;
+    }
+    a.nav-link{
+        font-weight: bold;
     }

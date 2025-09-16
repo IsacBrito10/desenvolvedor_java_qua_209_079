@@ -27,7 +27,7 @@ public class CrudController {
     @RequestMapping(value="/cadastrar", method=RequestMethod.POST)
     public String cadastrar(Pessoa usuario){
         csr.save(usuario);
-        return "redirect:/";
+        return "cadastrar";
     }
 
     // lista todos os usuarios cadastrados

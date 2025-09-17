@@ -1,63 +1,51 @@
-const usuariosData = document.getElementById('usuarios-data').textContent.trim();
-const usuarios = JSON.parse(usuariosData);
+const linhasPorPagina = 10; // Quantidade de usuários por página
+    let paginaAtual = 1;
 
-const usuariosPorPagina = 10;
-let paginaAtual = 1;
+    const tabela = document.getElementById("tabela-usuarios");
+    const linhas = tabela.getElementsByTagName("tr");
+    const totalPaginas = Math.ceil(linhas.length / linhasPorPagina);
 
-const tbody = document.getElementById('usuarios-tbody');
-const btnAnterior = document.getElementById('btn-anterior');
-const btnProximo = document.getElementById('btn-proximo');
-const spanPaginaAtual = document.getElementById('pagina-atual');
+    function mostrarPagina(pagina) {
+        const inicio = (pagina - 1) * linhasPorPagina;
+        const fim = inicio + linhasPorPagina;
 
-const totalPaginas = Math.ceil(usuarios.length / usuariosPorPagina);
+        for (let i = 0; i < linhas.length; i++) {
+            linhas[i].style.display = (i >= inicio && i < fim) ? "" : "none";
+        }
 
-function renderizarTabela() {
-  tbody.innerHTML = '';
+        paginaAtual = pagina;
+        atualizarPaginacao();
+    }
 
-  const inicio = (paginaAtual - 1) * usuariosPorPagina;
-  const fim = inicio + usuariosPorPagina;
-  const usuariosPagina = usuarios.slice(inicio, fim);
+    function atualizarPaginacao() {
+        const paginacaoDiv = document.getElementById("paginacao");
+        paginacaoDiv.innerHTML = "";
 
-  usuariosPagina.forEach(usuario => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${usuario.idPessoa}</td>
-      <td>${usuario.nome}</td>
-      <td>${usuario.cpf}</td>
-      <td>${usuario.email}</td>
-      <td>
-        <button class="btn-alterar btn-sm me-2">Alterar</button>
-        <button class="btn-excluir btn-sm">Excluir</button>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
+        // Botão Anterior
+        const btnAnterior = document.createElement("button");
+        btnAnterior.textContent = "Anterior";
+        btnAnterior.disabled = paginaAtual === 1;
+        btnAnterior.className = "btn btn-light mx-1";
+        btnAnterior.onclick = () => mostrarPagina(paginaAtual - 1);
+        paginacaoDiv.appendChild(btnAnterior);
 
-function atualizarControles() {
-  spanPaginaAtual.textContent = paginaAtual;
+        // Botões numéricos
+        for (let i = 1; i <= totalPaginas; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.className = "btn mx-1 " + (i === paginaAtual ? "btn-primary" : "btn-light");
+            btn.onclick = () => mostrarPagina(i);
+            paginacaoDiv.appendChild(btn);
+        }
 
-  btnAnterior.disabled = paginaAtual === 1;
-  btnProximo.disabled = paginaAtual === totalPaginas;
-}
+        // Botão Próximo
+        const btnProximo = document.createElement("button");
+        btnProximo.textContent = "Próximo";
+        btnProximo.disabled = paginaAtual === totalPaginas;
+        btnProximo.className = "btn btn-light mx-1";
+        btnProximo.onclick = () => mostrarPagina(paginaAtual + 1);
+        paginacaoDiv.appendChild(btnProximo);
+    }
 
-// Eventos dos botões
-btnAnterior.addEventListener('click', () => {
-  if (paginaAtual > 1) {
-    paginaAtual--;
-    renderizarTabela();
-    atualizarControles();
-  }
-});
-
-btnProximo.addEventListener('click', () => {
-  if (paginaAtual < totalPaginas) {
-    paginaAtual++;
-    renderizarTabela();
-    atualizarControles();
-  }
-});
-
-// Inicialização
-renderizarTabela();
-atualizarControles();
+    // Inicializa a primeira página
+    mostrarPagina(1);

@@ -8,14 +8,13 @@
     <title>CRUD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/estilos_listar.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/estilos_cadastrar.css" rel="stylesheet" type="text/css" media="all">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/alterar.png" alt="Ícone Lista Usuário" width="50">
+                <img src="img/caderno.png" alt="Ícone início" width="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,10 +27,10 @@
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cadastrar">Cadastrar Pessoa</a>
+                        <a class="nav-link" href="/alterarUsuario">Cadastrar Pessoa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" are-current="page" href="#">Lista de Usuários</a>
+                        <a class="nav-link" are-current="page" href="/listarUsuarios">Lista de Usuários</a>
                     </li>
                 </ul>
             </div>
@@ -40,38 +39,35 @@
     <hr>
     <!-- CONTAINER -->
     <div class="container">
-        <h1>LISTA DE USUÁRIOS</h1>
+        <h1>ALTERAR DADOS DO USUÁRIO</h1>
         <hr>
-        <div class="table-responsive">
-            <table class="table-bordered align-middle">
-                <thead class="table-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Email</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-usuarios">
-                    <tr th:each="usuario : ${usuarios}">
-                        <td th:text="${usuario.idPessoa}"></td>
-                        <td th:text="${usuario.nome}"></td>
-                        <td th:text="${usuario.cpf}"></td>
-                        <td th:text="${usuario.email}"></td>
-                        <td>
-                            <div class="btn-alterar">
-                                <a class="btn btn-warning" role="button" th:href="@{'/alterarUsuario/' + ${usuario.idPessoa}}">Alterar</a>
-                            </div>
-                            <button class="btn-excluir btn-sm">Excluir</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div id="paginacao" class="mt-3 text-center"></div>
-            <br><br>
-        </div>
+
+        <form method="POST">
+            <!-- ROW 1 -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nome Completo:</span>
+                        <input type="text" name="nome" class="form-control" placeholder="Informe seu nome completo" id="nome" th:value="${usuario.nome}" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">CPF:</span>
+                        <input type="text" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" th:value="${usuario.cpf}" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Email:</span>
+                        <input type="text" name="email" class="form-control" placeholder="Informe seu email" th:value="${usuario.email}" id="email" required>
+                    </div>
+                </div>
+            </div>
+                <button type="submit">ALTERAR</button>
+        </form>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -83,7 +79,6 @@
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
 
-    <script src="js/paginacao.js"></script>
+    <script src="js/mask.js"></script>
 </body>
-
 </html>

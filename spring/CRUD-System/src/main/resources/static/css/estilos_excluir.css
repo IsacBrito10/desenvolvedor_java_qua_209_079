@@ -1,0 +1,41 @@
+body {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #16161d;
+    font-weight: bold;
+}
+
+.h1 {
+    text-align: center;
+    border: solid 2px #990000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.h1-exclusao{
+    border: 2px solid #990000;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #330000;
+}
+
+/* Botão */
+.btn-excluir {
+    color: #990000;
+    border: 2px solid #990000;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.btn-excluir:hover {
+    background-color: #990000;
+    color: white;
+    border-color: white;
+    text-decoration: none;
+}

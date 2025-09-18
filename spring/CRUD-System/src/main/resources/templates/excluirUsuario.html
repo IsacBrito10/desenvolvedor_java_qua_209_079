@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta name="author" content="Isac Da Costa Brito" />
@@ -8,13 +8,15 @@
     <title>CRUD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/estilos_cadastrar.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../css/estilos_excluir.css" rel="stylesheet" type="text/css" alt="all">
 </head>
+
 <body>
+
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/caderno.png" alt="Ícone início" width="50">
+                <img src="../img/excluir.png" alt="Ícone de Exclusão" width="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -24,49 +26,34 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Cadastrar Pessoa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" are-current="page" href="/listarUsuarios">Lista de Usuários</a>
+                        <a class="nav-link active" aria-current="page" href="#">Confirmação de Exclusão do Usuário</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <hr>
-    <!-- CONTAINER -->
+    <br>
+    <h1 class="h1">CONFIRMAÇÃO DE EXCLUSÃO</h1>
+    <br>
     <div class="container">
-        <h1>CADASTRO DE USUÁRIOS</h1>
-        <hr>
-
-        <form method="POST">
-            <!-- ROW 1 -->
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Nome Completo:</span>
-                        <input type="text" name="nome" class="form-control" placeholder="Informe seu nome completo" id="nome" required>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">CPF:</span>
-                        <input type="text" name="cpf" class="form-control" placeholder="000.000.000-00" id="cpf" maxlength="14" required>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Email:</span>
-                        <input type="text" name="email" class="form-control" placeholder="Informe seu email" id="email" required>
-                    </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-10">
+                <h1 class="h1-exclusao">Deseja excluir: <span th:text="${usuario.nome}"></span>?</h1>
+            </div>
+            <div class="col-12 col-md-6 col-lg-1">
+                <div>
+                    <a class="btn-excluir" role="button" th:href="@{'/excluirUsuario?idPessoa=' + ${usuario.idPessoa}}">Sim</a>
                 </div>
             </div>
-                <button type="submit">CADASTRAR</button>
-        </form>
+            <div class="col-12 col-md-6 col-lg-1">
+                <div>
+                    <a class="btn-excluir" role="button" th:href="@{'/listarUsuarios'}">Não</a>
+                </div>
+            </div>
+        </div>
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -79,6 +66,6 @@
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
 
-    <script src="js/mask.js"></script>
 </body>
+
 </html>

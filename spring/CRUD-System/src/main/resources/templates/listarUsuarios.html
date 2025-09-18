@@ -63,7 +63,9 @@
                             <div class="btn-alterar">
                                 <a class="btn btn-warning" role="button" th:href="@{'/alterarUsuario/' + ${usuario.idPessoa}}">Alterar</a>
                             </div>
-                            <button class="btn-excluir btn-sm">Excluir</button>
+                            <div class="btn-excluir">
+                                <a class="btn-excluir btn-sm" role="button" th:href="@{'/confirmarExclusao/' + ${usuario.idPessoa}}">Excluir</a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

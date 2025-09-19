@@ -14,6 +14,7 @@ public class App {
         null,
         null,
         null);
+
         Conta conta = new Conta(
         "1234-5",
         "12345-6",
@@ -31,7 +32,7 @@ public class App {
             usuario.setEmail(JOptionPane.showInputDialog("Informe o Email do titular da conta:"));
             usuario.setTelefone(JOptionPane.showInputDialog("Informe o telefone do titular da conta:"));
             usuario.setEndereco(JOptionPane.showInputDialog("Informe o endereço do titular da conta:"));
-
+        
 
         do {
             opcao = JOptionPane.showInputDialog(null,

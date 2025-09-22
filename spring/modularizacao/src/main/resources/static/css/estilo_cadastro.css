@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+    border: solid 2px #4169E1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+body{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-group-text{
+    border: solid 2px #4169E1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}
+
+.form-control{
+    border: solid 2px #4169E1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}

@@ -1,0 +1,30 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    border: solid 2px #4169E1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

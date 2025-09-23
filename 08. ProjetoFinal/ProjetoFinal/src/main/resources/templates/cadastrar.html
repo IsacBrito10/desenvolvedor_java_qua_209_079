@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta name="author" content="Isac Da Costa Brito">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desaparecimento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body data-bs-theme="dark">
+    <header th:replace="fragments/navbar :: navbar"></header>
+    <main>
+        <div class="container">
+            <h1>CADASTRO DO DESAPARECIDO</h1>
+            <!-- ROW 1 -->
+            <div class="row">
+                <h1 class="caracteristicas">CARACTERISTICAS DA PESSOA</h1>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nome:</span>
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome do desaparecido" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">CPF:</span>
+                        <input type="text" name="cpf" id="cpf" class="form-control" placeholder="000.000.000-00" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Data de Nascimento:</span>
+                        <input type="date" name="dataNascimento" id="dataNascimento" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Gênero:</label>
+                        <select class="form-control" id="genero" name="genero" required>
+                            <option selected>Informe o Gênero</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- ROW 2 -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Altura:</span>
+                        <input type="text" name="altura" id="altura" class="form-control" placeholder="Ex: 1.70" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Peso:</span>
+                        <input type="text" name="peso" id="peso" class="form-control" placeholder="Ex: 70kg" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cor dos olhos:</span>
+                        <input type="text" name="cOlho" id="cOlho" class="form-control" placeholder="Azul, castanho, etc" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cor do cabelo:</span>
+                        <input type="text" name="cCabelo" id="cCabelo" class="form-control" placeholder="Informe a cor do cabelo." required>
+                    </div>
+                </div>
+            </div>
+            <!-- ROW 3 -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect02">Cor da Pele:</label>
+                        <select class="form-control" id="cPele" name="cPele" required>
+                            <option selected>Informe a Cor da Pele</option>
+                            <option value="branca">Branca</option>
+                            <option value="parda">Parda</option>
+                            <option value="preta">Preta</option>
+                            <option value="amarela">Amarela</option>
+                            <option value="indigena">Indígena</option>
+                            <option value="outra">Outra</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Sinais:</span>
+                        <input type="text" name="sinais" id="sinais" class="form-control" placeholder="Pintas, cicatrizes e etc" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Roupas:</span>
+                        <input type="text" name="roupa" id="roupa" class="form-control" placeholder="Roupa que usava antes de desaparecer." required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 4 (LOCAL DE DESAPARECIMENTO) -->
+            <h1 class="local">SOBRE O LOCAL DO DESAPARECIMENTO</h1>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">CEP:</span>
+                        <input type="text" name="cep" id="cep" class="form-control" placeholder="00000-000" required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Estado:</span>
+                        <input type="text" name="estado" id="estado" class="form-control" placeholder="Informe o Estado." required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cidade:</span>
+                        <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Informe a Cidade." required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Bairro:</span>
+                        <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Informe o bairro." required>
+                    </div>
+                </div>
+            </div>
+            <!-- ROW 5 -->
+             <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Logradouro:</span>
+                        <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Informe o logradouro." required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Complemento:</span>
+                        <input type="text" name="complemento" id="complemento" class="form-control" placeholder="Ponto de referencia, detalhes especificos." required>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Numero:</span>
+                        <input type="text" name="numero" id="numero" class="form-control" placeholder="Numero." required>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+
+</body>
+</html>

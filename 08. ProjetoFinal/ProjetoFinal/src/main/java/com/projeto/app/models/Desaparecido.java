@@ -29,18 +29,18 @@ public class Desaparecido implements Serializable{
 
     // DADOS DE CONTATO PARA AUXÍLIO NA INVESTIGAÇÃO
     private String email;
-    private String telefone;
+    private String telefone; 
 
     // DADOS DO DESAPARECIMENTO
     private String dataDesaparecimento;
-    private String cep;
-    private String estado;
-    private String cidade;
-    private String bairro;
-    private String logradouro;
-    private String complemento;
-    private String numero;
-    private String roupa;
+    private String cep; 
+    private String estado; 
+    private String cidade; 
+    private String bairro; 
+    private String logradouro; 
+    private String complemento; 
+    private String numero; 
+    private String roupa; 
     private String circunstancias;
     
     //CASO A PESSOA QUEIRA COMPLEMENTAR ALGO

@@ -2,21 +2,10 @@
 const cpfMask = document.querySelector('#cpf');
 const telefoneMask = document.querySelector('#telefone');
 const cepMask = document.querySelector('#cep');
+const dataNascimentoMask = document.querySelector('#dataNascimento')
+const dataDesaparecimentoMask = document.querySelector('#dataDesaparecimento')
+
 const form = document.querySelector('form');
-
-//arrow function
-const btn = () =>{
-    let nome = document.querySelector('#nome').value;
-    let cpf = document.querySelector('#cpf').value;
-    let telefone = document.querySelector('#telefone').value;
-    let cep = document.querySelector('#cep').value;
-    let result = `Nome: ${nome}.<br>
-                    CPF: ${cpf}.<br>
-                    Telefone: ${telefone}.<br>
-                    CEP: ${cep}.<br>`;
-
-    document.querySelector('#result').innerHTML = result;
-}
 
 //MASCARA DE ENTRADA
 //CPF
@@ -41,11 +30,19 @@ telefoneMask.addEventListener('input', function(){
         .replace(/(\d{2})(\d)/, '$1) $2')
         .replace(/(\d{5})(\d)/, '$1-$2')
 });
-//SUBMIT BUTTON
-form.addEventListener(`submit`, function(event) {
-    // desativa o evento
-    event.preventDefault();
 
-    // executa a função
-    btn();
+//DATA DE NASCIMENTO
+dataNascimentoMask.addEventListener('input', function(){
+    this.value = this.value
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d)/, '$1/$2')
+        .replace(/(\d{2})(\d)/, '$1/$2')
+});
+
+//DATA DE DESAPARECIMENTO
+dataDesaparecimentoMask.addEventListener('input', function(){
+    this.value = this.value
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d)/, '$1/$2')
+        .replace(/(\d{2})(\d)/, '$1/$2')
 });

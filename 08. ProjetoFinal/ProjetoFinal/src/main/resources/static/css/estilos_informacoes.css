@@ -1,0 +1,145 @@
+body{
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e2e8f0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+main .container {
+  background-color: #1e293b; 
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+h1.titulo{
+    text-align: center;
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+
+h1.pessoa{
+    border: solid 2px #4169E1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h1.sDesaparecimento{
+    border: solid 2px #4169E1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+
+h2.caracteristicas{
+    text-align: center;
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+
+h2.dados{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h2.local{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h2.circunstancias{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h2.contato{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h2.status{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h3.conferir{
+  color: white;
+  background-color: #B91C1C;
+  border: solid 4px black;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  font-weight: bold
+}
+.input-group-text{
+  background-color: #1e293b;
+  font-weight: bold;
+  color: white;
+}
+
+.form-control{
+  background-color: #1e293b;
+  font-weight: bold;
+  color: white;
+}
+
+button{
+  background-color: transparent;
+  border: solid 2px #4169E1;
+  border-radius: 10px;
+
+  font-size: 1.5rem;    /* aumenta o tamanho do texto, aumentando visualmente o botão */
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;  /* mantém o padding pequeno */
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #4169E1;
+  color: #fff;
+  transform: scale(1.1); /* aumenta o botão sem mexer no padding */
+}

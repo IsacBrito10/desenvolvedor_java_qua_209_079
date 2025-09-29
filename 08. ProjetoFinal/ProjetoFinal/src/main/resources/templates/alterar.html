@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta name="author" content="Isac Da Costa Brito">
@@ -9,12 +9,39 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/estilos_cadastro.css" rel="stylesheet" type="text/css" media="all">
+    <link th:href="@{/css/estilos_cadastro.css}" rel="stylesheet" type="text/css" media="all">
 
 </head>
 
 <body data-bs-theme="dark">
-    <header th:replace="fragments/navbar :: navbar"></header>
+    <header>
+        <nav class="navbar navbar-expand-lg mb-5 border-bottom" th:fragment="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img th:src="@{/img/desaparecimento.png}" alt="Ícone Principal" width="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/}">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{'/informacoes/' + ${desaparecido.idDesaparecido}}">Voltar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page"
+                                th:href="@{'/alterar/' + ${desaparecido.idDesaparecido}}">Alterar Dados</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
         <div class="container">
             <div style="text-align: center;">
@@ -32,28 +59,27 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Nome:</span>
-                            <input type="text" name="nome" id="nome" class="form-control"
-                                placeholder="Nome do desaparecido" maxlength="255" required>
+                            <input type="text" name="nome" id="nome" class="form-control" maxlength="255" placeholder="Nome do desaparecido" th:value="${desaparecido.nome}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">CPF:</span>
                             <input type="text" name="cpf" id="cpf" class="form-control" maxlength="14" placeholder="000.000.000-00"
-                                required>
+                                th:value="${desaparecido.cpf}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Data de Nascimento:</span>
-                            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control"  maxlength="10" placeholder="dd/mm/aaaa" required>
+                            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control"  maxlength="10" placeholder="dd/mm/aaaa"  th:value="${desaparecido.dataNascimento}" required>
                             <span id="erroDataNascimento" style="color: red; display: none;">Data de nascimento inválida!</span>                            
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Genero:</span>
-                            <input type="text" name="genero" id="genero" class="form-control"  maxlength="255" required>
+                            <input type="text" name="genero" id="genero" class="form-control" maxlength="255" th:value="${desaparecido.genero}" required>
                         </div>
                     </div>
                 </div>
@@ -67,28 +93,28 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Altura:</span>
                             <input type="text" name="altura" id="altura" class="form-control" placeholder="Ex: 1.70" maxlength="255"
-                                required>
+                            th:value="${desaparecido.altura}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Peso:</span>
                             <input type="text" name="peso" id="peso" class="form-control" placeholder="Ex: 70kg" maxlength="255"
-                                required>
+                            th:value="${desaparecido.peso}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Cor dos olhos:</span>
                             <input type="text" name="cOlho" id="cOlho" class="form-control"
-                                placeholder="Azul, castanho, etc" maxlength="255"  required>
+                            placeholder="Azul, castanho, etc" maxlength="255" th:value="${desaparecido.cOlho}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Cor do cabelo:</span>
                             <input type="text" name="cCabelo" id="cCabelo" class="form-control"
-                                placeholder="Informe a cor do cabelo." maxlength="255" required>
+                            placeholder="Informe a cor do cabelo." maxlength="255" th:value="${desaparecido.cCabelo}" required>
                         </div>
                     </div>
                 </div>
@@ -98,21 +124,21 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Cor da Pele:</span>
                             <input type="text" name="cPele" id="cPele" class="form-control"
-                                placeholder="Informe a cor da pele." maxlength="255" required>
+                            placeholder="Informe a cor da pele." maxlength="255" th:value="${desaparecido.cPele}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Sinais:</span>
                             <input type="text" name="sinais" id="sinais" class="form-control"
-                                placeholder="Pintas, cicatrizes e etc" maxlength="255" required>
+                            placeholder="Pintas, cicatrizes e etc" maxlength="255" th:value="${desaparecido.sinais}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-5">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Roupas:</span>
                             <input type="text" name="roupa" id="roupa" class="form-control"
-                                placeholder="Roupa que usava antes de desaparecer." maxlength="255" required>
+                                placeholder="Roupa que usava antes de desaparecer." maxlength="255" th:value="${desaparecido.roupa}" required>
                         </div>
                     </div>
                 </div>
@@ -127,28 +153,28 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">CEP:</span>
                             <input type="text" name="cep" id="cep" class="form-control" maxlength="9" placeholder="00000-000"
-                                required>
+                            th:value="${desaparecido.cep}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Estado:</span>
                             <input type="text" name="estado" id="estado" class="form-control"
-                                placeholder="Informe o Estado." maxlength="255" required>
+                                placeholder="Informe o Estado." maxlength="255" th:value="${desaparecido.estado}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Cidade:</span>
                             <input type="text" name="cidade" id="cidade" class="form-control"
-                                placeholder="Informe a Cidade." maxlength="255" required>
+                                placeholder="Informe a Cidade." maxlength="255" th:value="${desaparecido.cidade}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Bairro:</span>
                             <input type="text" name="bairro" id="bairro" class="form-control"
-                                placeholder="Informe o bairro." maxlength="255" required>
+                                placeholder="Informe o bairro." maxlength="255" th:value="${desaparecido.bairro}" required>
                         </div>
                     </div>
                 </div>
@@ -158,21 +184,21 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Logradouro:</span>
                             <input type="text" name="logradouro" id="logradouro" class="form-control"
-                                placeholder="Informe o logradouro." maxlength="255" required>
+                                placeholder="Informe o logradouro." maxlength="255" th:value="${desaparecido.logradouro}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Complemento:</span>
                             <input type="text" name="complemento" id="complemento" class="form-control"
-                                placeholder="Ponto de referencia, detalhes especificos." maxlength="255" required>
+                                placeholder="Ponto de referencia, detalhes especificos." maxlength="255" th:value="${desaparecido.complemento}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Numero:</span>
                             <input type="text" name="numero" id="numero" class="form-control" placeholder="Numero."
-                               maxlength="255" required>
+                               maxlength="255" th:value="${desaparecido.numero}" required>
                         </div>
                     </div>
                     <div class="conferir">
@@ -189,14 +215,13 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Circunstancias:</span>
                             <input type="text" name="circunstancias" id="circunstancias" class="form-control"
-                                placeholder="Ex: Estava saindo da escola. Indo trabalhar, etc." maxlength="255" required>
+                                placeholder="Ex: Estava saindo da escola. Indo trabalhar, etc." maxlength="255" th:value="${desaparecido.circunstancias}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Data do Desaparecimento:</span>
-                            <input type="text" name="dataDesaparecimento" id="dataDesaparecimento" placeholder="dd/mm/aaaa" maxlength="10" class="form-control" 
-                                required>
+                            <input type="text" name="dataDesaparecimento" id="dataDesaparecimento" placeholder="dd/mm/aaaa" maxlength="10" class="form-control" th:value="${desaparecido.dataDesaparecimento}"required>
                             <span id="erroDataDesaparecimento" style="color: red; display: none;">Data de desaparecimento inválida!</span>
                         </div>
                     </div>
@@ -208,7 +233,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Complemento:</span>
                             <input type="text" name="complementoCaso" id="complementoCaso" class="form-control"
-                                placeholder="Ex: Gostos da pessoa, pessoas proximas, etc." maxlength="255" required>
+                            placeholder="Ex: Gostos da pessoa, pessoas proximas, etc." maxlength="255" th:value="${desaparecido.complementoCaso}" required>
                         </div>
                     </div>
                 </div>
@@ -222,18 +247,18 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Email:</span>
                             <input type="text" name="email" id="email" class="form-control"
-                                placeholder="Email para contato." maxlength="255"  required>
+                            placeholder="Email para contato." maxlength="255" th:value="${desaparecido.email}"  required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Telefone:</span>
                             <input type="tel" name="telefone" id="telefone" maxlength="15" class="form-control"
-                                placeholder="Telefone para contato." required>
+                                placeholder="Telefone para contato." th:value="${desaparecido.telefone}" required>
                         </div>
                     </div>
                 </div>
-                <button type="submit">CADASTRAR PESSOA</button>
+                <button type="submit">ALTERAR OS DADOS</button>
             </form>
         </div>
     </main>
@@ -252,10 +277,10 @@
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
 
-    <script src="js/mascaras.js"></script>
-    <script src="js/apiCep.js"></script>
-    <script src="js/validacaoNascimento.js"></script>
-    <script src="js/activeNav.js"></script>
+    <script th:src="@{/js/mascaras.js}"></script>
+    <script th:src="@{/js/apiCep.js}"></script>
+    <script th:src="@{/js/validacaoNascimento.js}"></script>
+    <script th:src="@{/js/activeNav.js}"></script>
 </body>
 
 </html>

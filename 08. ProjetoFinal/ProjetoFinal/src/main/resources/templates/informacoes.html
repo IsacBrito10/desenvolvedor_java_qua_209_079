@@ -9,203 +9,288 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="../css/estilos_cadastro.css" rel="stylesheet" type="text/css" media="all">
+    <link th:href="@{/css/estilos_informacoes.css}" rel="stylesheet" type="text/css" media="all">
 
 </head>
 
 <body data-bs-theme="dark">
-    <header th:replace="fragments/navbarInformacoes :: navbar"></header>
+    <header>
+        <nav class="navbar navbar-expand-lg mb-5 border-bottom" th:fragment="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img th:src="@{/img/desaparecimento.png}" alt="Ícone Principal" width="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/}">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/lista}">Voltar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page"
+                                th:href="@{'/informacoes/' + ${desaparecido.idDesaparecido}}">Informações Detalhadas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
         <div class="container">
             <div style="text-align: center;">
-                <h1 class="titulo" style="text-align: center;">CADASTRO DO DESAPARECIDO</h1>
+                <h1 class="titulo" style="text-align: center;">INFORMAÇÕES DO DESAPARECIDO</h1>
             </div>
             <br>
-                <!-- ROW 1 -->
-                <h1 class="pessoa">SOBRE A PESSOA</h1>
-                <br>
-                <div class="row">
-                    <div class="dados">
-                        <h2 class="dados"> DADOS DA PESSOA:</h2>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Nome:</span>
-                            <span class="input-group-text" th:text="${desaparecido.nome}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">CPF:</span>
-                            <span class="input-group-text" th:text="${desaparecido.cpf}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Data de Nascimento:</span>
-                            <span class="input-group-text" th:text="${desaparecido.dataNascimento}"></span>                          
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Genero:</span>
-                            <span class="input-group-text" th:text="${desaparecido.genero}"></span>
-                        </div>
-                    </div>
-                </div>
+            <!-- ROW 1 -->
+            <h1 class="pessoa">SOBRE A PESSOA</h1>
+            <br>
 
-                <!-- ROW 2 -->
-                <div class="row">
-                    <div class="caracteristicas">
-                        <h2 class="caracteristicas">CARACTERISTICAS DA PESSOA:</h2>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Altura:</span>
-                            <span class="input-group-text" th:text="${desaparecido.altura}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Peso:</span>
-                            <span class="input-group-text" th:text="${desaparecido.peso}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Cor dos olhos:</span>
-                            <span class="input-group-text" th:text="${desaparecido.cOlho}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Cor do cabelo:</span>
-                            <span class="input-group-text" th:text="${desaparecido.cCabelo}"></span>
-                        </div>
+            <!-- ROW 1 -->
+            <div class="row">
+                <div class="dados">
+                    <h2 class="dados"> DADOS DA PESSOA:</h2>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nome:</span>
+                        <span class="form-control" th:text="${desaparecido.nome}"></span>
                     </div>
                 </div>
-                <!-- ROW 3 -->
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Cor da Pele:</span>
-                            <span class="input-group-text" th:text="${desaparecido.cPele}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Sinais:</span>
-                            <span class="input-group-text" th:text="${desaparecido.sinais}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-5">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Roupas:</span>
-                            <span class="input-group-text" th:text="${desaparecido.roupa}"></span>
-                        </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">CPF:</span>
+                        <span class="form-control" th:text="${desaparecido.cpf}"></span>
                     </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Data de Nascimento:</span>
+                        <span class="form-control" th:text="${desaparecido.dataNascimento}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Genero:</span>
+                        <span class="form-control" th:text="${desaparecido.genero}"></span>
+                    </div>
+                </div>
+            </div>
 
-                <!-- ROW 4 (LOCAL DE DESAPARECIMENTO) -->
-                 <br>
-                <h1 class="sDesaparecimento">SOBRE O DESAPARECIMENTO</h1>
-                <br>
-                <h2 class="local">LOCAL:</h2>
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">CEP:</span>
-                            <span class="input-group-text" th:text="${desaparecido.cep}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Estado:</span>
-                            <span class="input-group-text" th:text="${desaparecido.estado}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Cidade:</span>
-                            <span class="input-group-text" th:text="${desaparecido.cidade}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Bairro:</span>
-                            <span class="input-group-text" th:text="${desaparecido.bairro}"></span>
-                        </div>
+            <!-- ROW 2 -->
+            <div class="row">
+                <div class="caracteristicas">
+                    <h2 class="caracteristicas">CARACTERISTICAS DA PESSOA:</h2>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Altura:</span>
+                        <span class="form-control" th:text="${desaparecido.altura} + m"></span>
                     </div>
                 </div>
-                <!-- ROW 5 -->
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Logradouro:</span>
-                            <span class="input-group-text" th:text="${desaparecido.logradouro}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Complemento:</span>
-                            <span class="input-group-text" th:text="${desaparecido.complemento}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Numero:</span>
-                            <span class="input-group-text" th:text="${desaparecido.numero}"></span>
-                        </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Peso:</span>
+                        <span class="form-control" th:text="${desaparecido.peso} + kg"></span>
                     </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cor dos olhos:</span>
+                        <span class="form-control" th:text="${desaparecido.cOlho}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cor do cabelo:</span>
+                        <span class="form-control" th:text="${desaparecido.cCabelo}"></span>
+                    </div>
+                </div>
+            </div>
 
-                <!-- ROW 6 -->
-                <div class="row">
-                    <div class="circunstancias">
-                        <h2 class="circunstancias">CIRCUNSTANCIAS E DATA:</h2>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Circunstancias:</span>
-                            <span class="input-group-text" th:text="${desaparecido.circunstancias}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Data do Desaparecimento:</span>
-                            <span class="input-group-text" th:text="${desaparecido.dataDesaparecimento}"></span>
-                        </div>
+            <!-- ROW 3 -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cor da Pele:</span>
+                        <span class="form-control" th:text="${desaparecido.cPele}"></span>
                     </div>
                 </div>
-
-                <!-- ROW 8 -->
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-12">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Complemento:</span>
-                            <span class="input-group-text" th:text="${desaparecido.complementoCaso}"></span>
-                        </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Sinais:</span>
+                        <span class="form-control" th:text="${desaparecido.sinais}"></span>
                     </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Roupas:</span>
+                        <span class="form-control" th:text="${desaparecido.roupa}"></span>
+                    </div>
+                </div>
+            </div>
 
-                <!-- ROW 9 -->
-                <div class="row">
-                    <div class="contato"> <br> 
+            <!-- ROW 4 (LOCAL DE DESAPARECIMENTO) -->
+            <br>
+            <h1 class="sDesaparecimento">SOBRE O DESAPARECIMENTO</h1>
+            <br>
+            <h2 class="local">LOCAL:</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">CEP:</span>
+                        <span class="form-control" th:text="${desaparecido.cep}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Estado:</span>
+                        <span class="form-control" th:text="${desaparecido.estado}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cidade:</span>
+                        <span class="form-control" th:text="${desaparecido.cidade}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Bairro:</span>
+                        <span class="form-control" th:text="${desaparecido.bairro}"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 5 -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Logradouro:</span>
+                        <span class="form-control" th:text="${desaparecido.logradouro}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Complemento:</span>
+                        <span class="form-control" th:text="${desaparecido.complemento}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Numero:</span>
+                        <span class="form-control" th:text="${desaparecido.numero}"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 6 -->
+            <div class="row">
+                <div class="circunstancias">
+                    <h2 class="circunstancias">CIRCUNSTANCIAS E DATA:</h2>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Circunstancias:</span>
+                        <span class="form-control" th:text="${desaparecido.circunstancias}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Data do Desaparecimento:</span>
+                        <span class="form-control" th:text="${desaparecido.dataDesaparecimento}"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 8 (sem row 7 pq não fecho com o numero 7) -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-12">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Complemento:</span>
+                        <span class="form-control" th:text="${desaparecido.complementoCaso}"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 9 -->
+            <div class="row">
+                <div class="contato"> <br>
                     <h2 class="contato">CONTATO:</h2>
                 </div>
-                    <div class="col-12 col-md-6 col-lg-5">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Email:</span>
-                            <span class="input-group-text" th:text="${desaparecido.email}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Telefone:</span>
-                            <span class="input-group-text" th:text="${desaparecido.telefone}"></span>
-                        </div>
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Email:</span>
+                        <span class="form-control" th:text="${desaparecido.email}"></span>
                     </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Telefone:</span>
+                        <span class="form-control" th:text="${desaparecido.telefone}"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 10 -->
+            <div class="row">
+                <div class="status">
+                    <h2 class="status">STATUS</h2>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">STATUS:</span>
+                        <span class="form-control"></span> // TODO
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 11 -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="btn-alterar">
+                        <a class="btn btn-warning" role="button"
+                            th:href="@{'/alterar/' + ${desaparecido.idDesaparecido}}">ALTERAR DADOS</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <form>
+                        <div class="btn-excluir">
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#confirmarExclusao">EXCLUIR O
+                                CASO</button>
+                        </div>
+                        <div class="modal fade" id="confirmarExclusao" tabindex="-1"
+                            aria-labelledby="confirmarExclusaoLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content bg-dark text-light">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmarExclusaoLabel">Confirmar Exclusão</h5>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                            aria-label="Fechar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza que deseja excluir este usuário? Essa ação não pode ser desfeita.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <form th:action="@{../excluir/{idDesaparecido(idDesaparecido=${desaparecido.idDesaparecido})}}" method="post">
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
     <footer th:replace="fragments/footerInformacoes :: footer"></footer>
@@ -223,9 +308,7 @@
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
 
-    <script src="js/mascaras.js"></script>
-    <script src="js/apiCep.js"></script>
-    <script src="js/validacaoNascimento.js"></script>
+    <script th:src="@{/js/activeNav.js}"></script>
 </body>
 
 </html>

@@ -17,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.projeto.app.models.Desaparecido;
 import com.projeto.app.repository.AppRepository;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Controller
 public class CrudController {
     @Autowired
@@ -75,12 +77,14 @@ public class CrudController {
         return "redirect:/informacoes/{idDesaparecido}";
     }
 
-    @PostMapping("../excluir/{idDesaparecido}")
-    public String excluirDesaparecido(@PathVariable long idDesaparecido){
+    @PostMapping("/excluir/{idDesaparecido}")
+    @Transactional
+    public String excluir(@PathVariable Long idDesaparecido){
         csr.deleteByIdDesaparecido(idDesaparecido);
         return "redirect:/lista";
     }
     }
+    
 
 
 

@@ -114,6 +114,9 @@ h3.conferir{
   padding: 0.3rem 0.6rem;
   font-weight: bold
 }
+h5{
+  padding: 10px;
+}
 .input-group-text{
   background-color: #1e293b;
   font-weight: bold;
@@ -142,4 +145,8 @@ button:hover {
   background-color: #4169E1;
   color: #fff;
   transform: scale(1.1); /* aumenta o botão sem mexer no padding */
+}
+
+.btn-alterar:hover{
+  transform: scale(1.1);
 }

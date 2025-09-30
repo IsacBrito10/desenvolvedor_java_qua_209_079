@@ -127,10 +127,9 @@ h3.conferir{
 }
 
 button{
-  background-color: #4169E1;
-  border: solid 2px #4169E1;
+  background-color: #ffc107;
+  border: solid 2px #ffc107;
   border-radius: 10px;
-
   font-size: 1.5rem;    /* aumenta o tamanho do texto, aumentando visualmente o botão */
   font-weight: 600;
   cursor: pointer;
@@ -139,7 +138,7 @@ button{
 }
 
 button:hover {
-  background-color: #4169E1;
+  background-color: #ffc107;
   color: #fff;
   transform: scale(1.1); /* aumenta o botão sem mexer no padding */
 }

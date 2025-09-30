@@ -49,6 +49,7 @@ public class Desaparecido implements Serializable{
     private String complementoCaso;
 
     //status
+    private String status;
 
     // constructor
     public Desaparecido() {
@@ -248,4 +249,11 @@ public class Desaparecido implements Serializable{
         this.complementoCaso = complementoCaso;
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -5,12 +5,13 @@
     <meta name="author" content="Isac Da Costa Brito">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Desaparecimento</title>
+    <title>Mais informações</title>
+    <link rel="shortcut icon" type="image/img" href="../img/informacoes.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link th:href="@{/css/estilos_informacoes.css}" rel="stylesheet" type="text/css" media="all">
-
+    <link th:href="@{/css/overlay.css}" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body data-bs-theme="dark">
@@ -18,7 +19,7 @@
         <nav class="navbar navbar-expand-lg mb-5 border-bottom" th:fragment="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img th:src="@{/img/desaparecimento.png}" alt="Ícone Principal" width="50">
+                    <img th:src="@{/img/informacoes.png}" alt="Ícone Mais Informações" width="60">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -246,7 +247,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">STATUS:</span>
-                        <span class="form-control"></span> // TODO
+                        <span class="form-control" th:text="${desaparecido.status}"></span>
                     </div>
                 </div>
             </div>
@@ -260,35 +261,40 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <form>
+                        
+                        <!-- ATIVAÇÃO MODAL -->
                         <div class="btn-excluir">
-                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#confirmarExclusao">EXCLUIR O
-                                CASO</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalConfirmacao">
+                                EXCLUIR CASO
+                            </button>
                         </div>
-                        <div class="modal fade" id="confirmarExclusao" tabindex="-1"
-                            aria-labelledby="confirmarExclusaoLabel" aria-hidden="true">
+                        <!-- Modal de confirmação -->
+                        <div class="modal fade" id="modalConfirmacao" tabindex="-1"
+                            aria-labelledby="modalConfirmacaoLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content bg-dark text-light">
+                                <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="confirmarExclusaoLabel">Confirmar Exclusão</h5>
-                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                        <div class="img-excluir">
+                                            <img th:src="@{/img/excluir.png}" width="45" alt="Ícone Excluir">
+                                        </div>
+                                        <h5 class="modal-title" id="modalConfirmacaoLabel">Confirmar Exclusão</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Fechar"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Tem certeza que deseja excluir este usuário? Essa ação não pode ser desfeita.
+                                        Tem certeza que deseja excluir este caso?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Cancelar</button>
-                                        <form th:action="@{../excluir/{idDesaparecido(idDesaparecido=${desaparecido.idDesaparecido})}}" method="post">
+                                            <form th:action="@{'/excluir/' + ${desaparecido.idDesaparecido}}" method="post">
                                             <button type="submit" class="btn btn-danger">Excluir</button>
-                                        </form>
+                                            </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

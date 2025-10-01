@@ -1,11 +1,13 @@
 package com.projeto.app.controllers;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,34 +40,35 @@ public class CrudController {
         return "cadastrar";
     }
 
-    // SAVE CADASTRO
+    // SAVE CADASTRO + IMG
+    //IMG
     @PostMapping("/cadastrar")
-    public String cadastrar(@ModelAttribute Desaparecido desaparecido,
-            @RequestParam("arquivoFoto") MultipartFile arquivoFoto,
-            RedirectAttributes attributes) {
-        if (!arquivoFoto.isEmpty()) {
-            String nomeArquivo = arquivoFoto.getOriginalFilename();
-            if (nomeArquivo != null && (nomeArquivo.toLowerCase().endsWith(".jpg") ||
-                    nomeArquivo.toLowerCase().endsWith(".jpeg") ||
-                    nomeArquivo.toLowerCase().endsWith(".png"))) {
-
-                String caminho = "src/main/resources/static/img/fotos/" + nomeArquivo;
-                try {
-                    arquivoFoto.transferTo(new java.io.File(caminho));
-                    desaparecido.setFoto("/img/fotos/" + nomeArquivo);
-                } catch (Exception e) {
-                    attributes.addFlashAttribute("mensagem", "Erro ao enviar arquivo. Tente novamente.");
-                    return "redirect:/cadastrar";
-                }
-            } else {
-                attributes.addFlashAttribute("mensagem", "Tipo de arquivo inválido. Envie jpg, jpeg ou png.");
-                return "redirect:/cadastrar";
+    public String cadastrarSubmit(@ModelAttribute Desaparecido desaparecido, @RequestParam("file") MultipartFile file) {
+        if (!file.isEmpty()) {
+            try {
+                byte[] fotoBytes = file.getBytes();
+                desaparecido.setFoto(fotoBytes);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         csr.save(desaparecido);
         return "redirect:/";
     }
 
+    @GetMapping("/imagem/{idDesaparecido}")
+    public ResponseEntity<byte[]> exibirImagemJpeg(@PathVariable Long idDesaparecido) {
+        Desaparecido desaparecido = csr.findByIdDesaparecido(idDesaparecido);
+        if (desaparecido != null && desaparecido.getFoto() != null) {
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .contentType(MediaType.IMAGE_PNG)
+                    .body(desaparecido.getFoto());
+        }
+        return ResponseEntity.notFound().build();
+    }
+   
     // LISTA
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public ModelAndView lista() {

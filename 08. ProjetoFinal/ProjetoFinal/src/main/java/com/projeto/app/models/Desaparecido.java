@@ -44,7 +44,7 @@ public class Desaparecido implements Serializable{
     private String numero; 
     private String roupa; 
     private String circunstancias;
-    private String foto; // FOTO DO ROSTO
+    private byte[]  foto; // FOTO DO ROSTO
 
     //CASO A PESSOA QUEIRA COMPLEMENTAR ALGO
     private String complementoCaso;
@@ -243,11 +243,11 @@ public class Desaparecido implements Serializable{
         this.circunstancias = circunstancias;
     }
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return this.foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 

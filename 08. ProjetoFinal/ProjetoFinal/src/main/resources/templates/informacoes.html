@@ -54,7 +54,7 @@
             <br>
 
             <!-- ROW 1 -->
-            <div class="row">
+            <div class="row allign-items-center">
                 <div class="dados">
                     <h2 class="dados"> DADOS DA PESSOA:</h2>
                 </div>
@@ -70,9 +70,9 @@
                         <span class="form-control" th:text="${desaparecido.cpf}"></span>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <figure>
-                        <img th:src="${desaparecido.foto}" alt="Imagem do Desaparecido"/>
+                <div class="col-12 col-md-6 ms-auto text-end">
+                    <figure style="margin: 0;">
+                        <img th:src="@{'/imagem/' + ${desaparecido.idDesaparecido}}" alt="Imagem do Desaparecido" style="width: 120px; height: 120px; object-fit: cover;"/>
                     </figure>
                 </div>
                 <div class="row">

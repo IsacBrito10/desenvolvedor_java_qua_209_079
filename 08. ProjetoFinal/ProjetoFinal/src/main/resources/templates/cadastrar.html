@@ -21,7 +21,7 @@
                 <h1 class="titulo" style="text-align: center;">CADASTRO DO DESAPARECIDO</h1>
             </div>
             <br>
-            <form th:action="@{/cadastrar}" method="post" enctype="multipart/form-data">
+            <form th:action="@{/cadastrar}" th:object="${desaparecido}" method="post" enctype="multipart/form-data">
                 <!-- ROW 1 -->
                 <h1 class="pessoa">SOBRE A PESSOA</h1>
                 <br>
@@ -246,8 +246,8 @@
                     <div class="col-12 col-md-6 col-lg-10">
                         <div class="input-group mb-3">
                             <span for="foto" class="input-group-text">Foto(Priorize enviar do rosto):</span>
-                                <input class="form-control" name="arquivoFoto" accept=".jpg,.jpeg,.png" type="file" id="foto" required />
-                            <label for="foto" class="form-control">Selecione uma foto do rosto (JPEG ou PNG)</label>
+                            <input class="form-control" name="file" accept="image/*" type="file" id="foto" required />
+                            <label for="foto" class="form-control">Selecione uma foto do rosto (JPEG,PNG ou JPG)</label>
                         </div>
                     </div>
                 </div>

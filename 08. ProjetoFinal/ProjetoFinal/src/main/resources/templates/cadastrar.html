@@ -21,7 +21,7 @@
                 <h1 class="titulo" style="text-align: center;">CADASTRO DO DESAPARECIDO</h1>
             </div>
             <br>
-            <form method="POST">
+            <form th:action="@{/cadastrar}" method="post" enctype="multipart/form-data">
                 <!-- ROW 1 -->
                 <h1 class="pessoa">SOBRE A PESSOA</h1>
                 <br>
@@ -39,21 +39,23 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">CPF:</span>
-                            <input type="text" name="cpf" id="cpf" class="form-control" maxlength="14" placeholder="000.000.000-00"
-                                required>
+                            <input type="text" name="cpf" id="cpf" class="form-control" maxlength="14"
+                                placeholder="000.000.000-00" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Data de Nascimento:</span>
-                            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control"  maxlength="10" placeholder="dd/mm/aaaa" required>
-                            <span id="erroDataNascimento" style="color: red; display: none;">Data de nascimento inválida!</span>                            
+                            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control"
+                                maxlength="10" placeholder="dd/mm/aaaa" required>
+                            <span id="erroDataNascimento" style="color: red; display: none;">Data de nascimento
+                                inválida!</span>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Genero:</span>
-                            <input type="text" name="genero" id="genero" class="form-control"  maxlength="255" required>
+                            <input type="text" name="genero" id="genero" class="form-control" maxlength="255" required>
                         </div>
                     </div>
                 </div>
@@ -66,22 +68,22 @@
                     <div class="col-12 col-md-6 col-lg-2">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Altura:</span>
-                            <input type="text" name="altura" id="altura" class="form-control" placeholder="Ex: 1.70" maxlength="255"
-                                required>
+                            <input type="text" name="altura" id="altura" class="form-control" placeholder="Ex: 1.70"
+                                maxlength="255" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Peso:</span>
-                            <input type="text" name="peso" id="peso" class="form-control" placeholder="Ex: 70kg" maxlength="255"
-                                required>
+                            <input type="text" name="peso" id="peso" class="form-control" placeholder="Ex: 70kg"
+                                maxlength="255" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Cor dos olhos:</span>
                             <input type="text" name="cOlho" id="cOlho" class="form-control"
-                                placeholder="Azul, castanho, etc" maxlength="255"  required>
+                                placeholder="Azul, castanho, etc" maxlength="255" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -126,8 +128,8 @@
                     <div class="col-12 col-md-6 col-lg-2">
                         <div class="input-group mb-3">
                             <span class="input-group-text">CEP:</span>
-                            <input type="text" name="cep" id="cep" class="form-control" maxlength="9" placeholder="00000-000"
-                                required>
+                            <input type="text" name="cep" id="cep" class="form-control" maxlength="9"
+                                placeholder="00000-000" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-2">
@@ -172,7 +174,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Numero:</span>
                             <input type="text" name="numero" id="numero" class="form-control" placeholder="Numero."
-                               maxlength="255" required>
+                                maxlength="255" required>
                         </div>
                     </div>
                     <div class="conferir">
@@ -189,15 +191,17 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">Circunstancias:</span>
                             <input type="text" name="circunstancias" id="circunstancias" class="form-control"
-                                placeholder="Ex: Estava saindo da escola. Indo trabalhar, etc." maxlength="255" required>
+                                placeholder="Ex: Estava saindo da escola. Indo trabalhar, etc." maxlength="255"
+                                required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Data do Desaparecimento:</span>
-                            <input type="text" name="dataDesaparecimento" id="dataDesaparecimento" placeholder="dd/mm/aaaa" maxlength="10" class="form-control" 
-                                required>
-                            <span id="erroDataDesaparecimento" style="color: red; display: none;">Data de desaparecimento inválida!</span>
+                            <input type="text" name="dataDesaparecimento" id="dataDesaparecimento"
+                                placeholder="dd/mm/aaaa" maxlength="10" class="form-control" required>
+                            <span id="erroDataDesaparecimento" style="color: red; display: none;">Data de
+                                desaparecimento inválida!</span>
                         </div>
                     </div>
                 </div>
@@ -215,14 +219,14 @@
 
                 <!-- ROW 9 -->
                 <div class="row">
-                    <div class="contato"> <br> 
-                    <h2 class="contato">CONTATO:</h2>
+                    <div class="contato"> <br>
+                        <h2 class="contato">CONTATO:</h2>
                     </div>
                     <div class="col-12 col-md-6 col-lg-5">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Email:</span>
                             <input type="text" name="email" id="email" class="form-control"
-                                placeholder="Email para contato." maxlength="255"  required>
+                                placeholder="Email para contato." maxlength="255" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -230,6 +234,20 @@
                             <span class="input-group-text">Telefone:</span>
                             <input type="tel" name="telefone" id="telefone" maxlength="15" class="form-control"
                                 placeholder="Telefone para contato." required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 10 -->
+                <div class="row">
+                    <div class="foto"> <br>
+                        <h2 class="foto">ENVIE UMA IMAGEM DA PESSOA:</h2>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-10">
+                        <div class="input-group mb-3">
+                            <span for="foto" class="input-group-text">Foto(Priorize enviar do rosto):</span>
+                                <input class="form-control" name="arquivoFoto" accept=".jpg,.jpeg,.png" type="file" id="foto" required />
+                            <label for="foto" class="form-control">Selecione uma foto do rosto (JPEG ou PNG)</label>
                         </div>
                     </div>
                 </div>

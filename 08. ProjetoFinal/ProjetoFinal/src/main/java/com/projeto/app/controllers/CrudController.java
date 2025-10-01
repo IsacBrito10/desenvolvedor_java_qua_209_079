@@ -1,16 +1,18 @@
 package com.projeto.app.controllers;
 
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -24,67 +26,84 @@ public class CrudController {
     @Autowired
     private AppRepository csr;
 
-    //INÍCIO
+    // INÍCIO
     @RequestMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     // CADASTRAR
-    @RequestMapping(value="/cadastrar", method=RequestMethod.GET)
-    public String cadastrar(){
+    @RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
+    public String cadastrar() {
         return "cadastrar";
     }
 
     // SAVE CADASTRO
-    @RequestMapping(value="/cadastrar", method=RequestMethod.POST)
-    public String cadastrar(Desaparecido desaparecido){
+    @PostMapping("/cadastrar")
+    public String cadastrar(@ModelAttribute Desaparecido desaparecido,
+            @RequestParam("arquivoFoto") MultipartFile arquivoFoto,
+            RedirectAttributes attributes) {
+        if (!arquivoFoto.isEmpty()) {
+            String nomeArquivo = arquivoFoto.getOriginalFilename();
+            if (nomeArquivo != null && (nomeArquivo.toLowerCase().endsWith(".jpg") ||
+                    nomeArquivo.toLowerCase().endsWith(".jpeg") ||
+                    nomeArquivo.toLowerCase().endsWith(".png"))) {
+
+                String caminho = "src/main/resources/static/img/fotos/" + nomeArquivo;
+                try {
+                    arquivoFoto.transferTo(new java.io.File(caminho));
+                    desaparecido.setFoto("/img/fotos/" + nomeArquivo);
+                } catch (Exception e) {
+                    attributes.addFlashAttribute("mensagem", "Erro ao enviar arquivo. Tente novamente.");
+                    return "redirect:/cadastrar";
+                }
+            } else {
+                attributes.addFlashAttribute("mensagem", "Tipo de arquivo inválido. Envie jpg, jpeg ou png.");
+                return "redirect:/cadastrar";
+            }
+        }
         csr.save(desaparecido);
         return "redirect:/";
     }
 
     // LISTA
-    @RequestMapping(value="/lista", method=RequestMethod.GET)
-    public ModelAndView lista(){
+    @RequestMapping(value = "/lista", method = RequestMethod.GET)
+    public ModelAndView lista() {
         ModelAndView mv = new ModelAndView("lista");
         Iterable<Desaparecido> desaparecidos = csr.findAll();
         mv.addObject("desaparecidos", desaparecidos);
         return mv;
     }
 
-    //MAIS INFORMAÇÕES
-    @RequestMapping(value="/informacoes/{idDesaparecido}", method=RequestMethod.GET)
-    public ModelAndView informacoes(@PathVariable("idDesaparecido") long idDesaparecido){
+    // MAIS INFORMAÇÕES
+    @RequestMapping(value = "/informacoes/{idDesaparecido}", method = RequestMethod.GET)
+    public ModelAndView informacoes(@PathVariable("idDesaparecido") long idDesaparecido) {
         Desaparecido desaparecido = csr.findByIdDesaparecido(idDesaparecido);
         ModelAndView mv = new ModelAndView("informacoes");
         mv.addObject("desaparecido", desaparecido);
         return mv;
     }
 
-    //ALTERAR GET
-    @RequestMapping(value="/alterar/{idDesaparecido}", method=RequestMethod.GET)
-    public ModelAndView alterar(@PathVariable("idDesaparecido") long idDesaparecido){
+    // ALTERAR GET
+    @RequestMapping(value = "/alterar/{idDesaparecido}", method = RequestMethod.GET)
+    public ModelAndView alterar(@PathVariable("idDesaparecido") long idDesaparecido) {
         Desaparecido desaparecido = csr.findByIdDesaparecido(idDesaparecido);
         ModelAndView mv = new ModelAndView("alterar");
         mv.addObject("desaparecido", desaparecido);
         return mv;
     }
 
-    //ALTERAR POST
-    @RequestMapping(value="/alterar/{idDesaparecido}", method=RequestMethod.POST)
-    public String alterar(@Validated Desaparecido desaparecido, BindingResult result, RedirectAttributes attributes){
+    // ALTERAR POST
+    @RequestMapping(value = "/alterar/{idDesaparecido}", method = RequestMethod.POST)
+    public String alterar(@Validated Desaparecido desaparecido, BindingResult result, RedirectAttributes attributes) {
         csr.save(desaparecido);
         return "redirect:/informacoes/{idDesaparecido}";
     }
 
     @PostMapping("/excluir/{idDesaparecido}")
     @Transactional
-    public String excluir(@PathVariable Long idDesaparecido){
+    public String excluir(@PathVariable Long idDesaparecido) {
         csr.deleteByIdDesaparecido(idDesaparecido);
         return "redirect:/lista";
     }
-    }
-    
-
-
-
+}

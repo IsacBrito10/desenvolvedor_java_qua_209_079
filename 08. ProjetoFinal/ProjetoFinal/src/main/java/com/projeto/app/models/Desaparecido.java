@@ -44,7 +44,8 @@ public class Desaparecido implements Serializable{
     private String numero; 
     private String roupa; 
     private String circunstancias;
-    
+    private String foto; // FOTO DO ROSTO
+
     //CASO A PESSOA QUEIRA COMPLEMENTAR ALGO
     private String complementoCaso;
 
@@ -56,6 +57,7 @@ public class Desaparecido implements Serializable{
     }
 
     // get and set
+
 
     public long getIdDesaparecido() {
         return this.idDesaparecido;
@@ -241,6 +243,14 @@ public class Desaparecido implements Serializable{
         this.circunstancias = circunstancias;
     }
 
+    public String getFoto() {
+        return this.foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public String getComplementoCaso() {
         return this.complementoCaso;
     }
@@ -256,4 +266,5 @@ public class Desaparecido implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
+  
 }

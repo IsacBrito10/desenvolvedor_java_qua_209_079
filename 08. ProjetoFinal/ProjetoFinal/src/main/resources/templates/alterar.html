@@ -45,7 +45,7 @@
     <main>
         <div class="container">
             <div style="text-align: center;">
-                <h1 class="titulo" style="text-align: center;">CADASTRO DO DESAPARECIDO</h1>
+                <h1 class="titulo" style="text-align: center;">ALTERAR DADOS DO DESAPARECIDO</h1>
             </div>
             <br>
             <form method="POST">
@@ -287,7 +287,8 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text">STATUS:</span>
-                            <select name="status" th:field="*{status}" class="form-select" required>
+                            <select name="status" class="form-select" required>
+                                <option th:text="${desaparecido.status}" selected></option>
                                 <option value="Em Análise">Em Análise</option>
                                 <option value="Em Investigação">Em Investigação</option>
                                 <option value="Avistado">Avistado</option>

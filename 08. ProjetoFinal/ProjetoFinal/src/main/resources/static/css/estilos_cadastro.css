@@ -105,6 +105,16 @@ h2.status{
     border-right: none;
     font-weight: bold
 }
+h2.foto{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
 h3.conferir{
   color: white;
   background-color: #B91C1C;

@@ -70,16 +70,23 @@
                         <span class="form-control" th:text="${desaparecido.cpf}"></span>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Data de Nascimento:</span>
-                        <span class="form-control" th:text="${desaparecido.dataNascimento}"></span>
-                    </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <figure>
+                        <img th:src="${desaparecido.foto}" alt="Imagem do Desaparecido"/>
+                    </figure>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Genero:</span>
-                        <span class="form-control" th:text="${desaparecido.genero}"></span>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Data de Nascimento:</span>
+                            <span class="form-control" th:text="${desaparecido.dataNascimento}"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Genero:</span>
+                            <span class="form-control" th:text="${desaparecido.genero}"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -238,7 +245,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- ROW 10 -->
             <div class="row">
                 <div class="status">
@@ -261,40 +267,40 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                        
-                        <!-- ATIVAÇÃO MODAL -->
-                        <div class="btn-excluir">
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalConfirmacao">
-                                EXCLUIR CASO
-                            </button>
-                        </div>
-                        <!-- Modal de confirmação -->
-                        <div class="modal fade" id="modalConfirmacao" tabindex="-1"
-                            aria-labelledby="modalConfirmacaoLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <div class="img-excluir">
-                                            <img th:src="@{/img/excluir.png}" width="45" alt="Ícone Excluir">
-                                        </div>
-                                        <h5 class="modal-title" id="modalConfirmacaoLabel">Confirmar Exclusão</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Fechar"></button>
+
+                    <!-- ATIVAÇÃO MODAL -->
+                    <div class="btn-excluir">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#modalConfirmacao">
+                            EXCLUIR CASO
+                        </button>
+                    </div>
+                    <!-- Modal de confirmação -->
+                    <div class="modal fade" id="modalConfirmacao" tabindex="-1" aria-labelledby="modalConfirmacaoLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="img-excluir">
+                                        <img th:src="@{/img/excluir.png}" width="45" alt="Ícone Excluir">
                                     </div>
-                                    <div class="modal-body">
-                                        Tem certeza que deseja excluir este caso?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cancelar</button>
-                                            <form th:action="@{'/excluir/' + ${desaparecido.idDesaparecido}}" method="post">
-                                            <button type="submit" class="btn btn-danger">Excluir</button>
-                                            </form>
-                                    </div>
+                                    <h5 class="modal-title" id="modalConfirmacaoLabel">Confirmar Exclusão</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Fechar"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Tem certeza que deseja excluir este caso?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancelar</button>
+                                    <form th:action="@{'/excluir/' + ${desaparecido.idDesaparecido}}" method="post">
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

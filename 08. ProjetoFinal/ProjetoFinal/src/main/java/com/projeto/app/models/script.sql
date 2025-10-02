@@ -4,6 +4,8 @@ USE projeto_final;
 
 SELECT * FROM desaparecido;
 
-ALTER TABLE desaparecido MODIFY foto BLOB;
+SET GLOBAL max_allowed_packet = 1048576000;   
+
+ALTER TABLE desaparecido MODIFY foto LONGBLOB;
 
 DROP TABLE desaparecido;

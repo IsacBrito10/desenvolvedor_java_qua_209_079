@@ -1,7 +1,7 @@
 const linhasPorPagina = 10; // Quantidade de usuários por página
     let paginaAtual = 1;
 
-    const tabela = document.getElementById("tabela-usuarios");
+    const tabela = document.getElementById("tabela-desaparecidos");
     const linhas = tabela.getElementsByTagName("tr");
     const totalPaginas = Math.ceil(linhas.length / linhasPorPagina);
 

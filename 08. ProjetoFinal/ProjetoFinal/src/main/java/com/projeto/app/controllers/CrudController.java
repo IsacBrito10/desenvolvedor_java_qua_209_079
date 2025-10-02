@@ -3,7 +3,6 @@ package com.projeto.app.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -41,7 +40,7 @@ public class CrudController {
     }
 
     // SAVE CADASTRO + IMG
-    //IMG
+    // IMG
     @PostMapping("/cadastrar")
     public String cadastrarSubmit(@ModelAttribute Desaparecido desaparecido, @RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
@@ -68,7 +67,7 @@ public class CrudController {
         }
         return ResponseEntity.notFound().build();
     }
-   
+
     // LISTA
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public ModelAndView lista() {
@@ -98,9 +97,21 @@ public class CrudController {
 
     // ALTERAR POST
     @RequestMapping(value = "/alterar/{idDesaparecido}", method = RequestMethod.POST)
-    public String alterar(@Validated Desaparecido desaparecido, BindingResult result, RedirectAttributes attributes) {
+    public String alterar(@Validated Desaparecido desaparecido, BindingResult result, RedirectAttributes attributes,
+            @RequestParam(value = "file", required = false) MultipartFile file) {
+        if (file != null && !file.isEmpty()) {
+            try {
+                byte[] fotoBytes = file.getBytes();
+                desaparecido.setFoto(fotoBytes);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Desaparecido antigo = csr.findByIdDesaparecido(desaparecido.getIdDesaparecido());
+            desaparecido.setFoto(antigo.getFoto());
+        }
         csr.save(desaparecido);
-        return "redirect:/informacoes/{idDesaparecido}";
+        return "redirect:/informacoes/" + desaparecido.getIdDesaparecido();
     }
 
     @PostMapping("/excluir/{idDesaparecido}")

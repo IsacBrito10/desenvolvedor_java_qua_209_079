@@ -1,0 +1,45 @@
+body{
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e2e8f0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+main .container {
+  background-color: #1e293b; 
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+h2{
+    text-align: center;
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h1.titulo{
+    text-align: center;
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+
+div.titulo{
+    text-align: center;
+}

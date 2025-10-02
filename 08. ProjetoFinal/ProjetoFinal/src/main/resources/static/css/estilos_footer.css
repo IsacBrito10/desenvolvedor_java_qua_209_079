@@ -1,0 +1,10 @@
+.contatof{
+  background-color: #223a81; 
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  margin: 0.5rem auto 0.5rem auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}

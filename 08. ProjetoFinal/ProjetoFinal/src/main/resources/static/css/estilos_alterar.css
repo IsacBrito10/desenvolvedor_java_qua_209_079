@@ -5,6 +5,7 @@ body{
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  font-weight: bold;
 }
 
 main .container {
@@ -96,6 +97,16 @@ h2.contato{
     font-weight: bold
 }
 h2.status{
+    border: solid 2px #4169E1;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-weight: bold
+}
+h2.foto{
     border: solid 2px #4169E1;
     border-radius: 6px;
     display: inline-block;

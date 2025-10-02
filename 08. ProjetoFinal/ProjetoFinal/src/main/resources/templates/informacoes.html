@@ -12,6 +12,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link th:href="@{/css/estilos_informacoes.css}" rel="stylesheet" type="text/css" media="all">
     <link th:href="@{/css/overlay.css}" rel="stylesheet" type="text/css" media="all">
+    <link th:href="@{/css/estilos_footer.css}" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body data-bs-theme="dark">
@@ -52,45 +53,50 @@
             <!-- ROW 1 -->
             <h1 class="pessoa">SOBRE A PESSOA</h1>
             <br>
-
-            <!-- ROW 1 -->
-            <div class="row allign-items-center">
-                <div class="dados">
-                    <h2 class="dados"> DADOS DA PESSOA:</h2>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Nome:</span>
-                        <span class="form-control" th:text="${desaparecido.nome}"></span>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">CPF:</span>
-                        <span class="form-control" th:text="${desaparecido.cpf}"></span>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 ms-auto text-end">
-                    <figure style="margin: 0;">
-                        <img th:src="@{'/imagem/' + ${desaparecido.idDesaparecido}}" alt="Imagem do Desaparecido" style="width: 120px; height: 120px; object-fit: cover;"/>
-                    </figure>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Data de Nascimento:</span>
-                            <span class="form-control" th:text="${desaparecido.dataNascimento}"></span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Genero:</span>
-                            <span class="form-control" th:text="${desaparecido.genero}"></span>
-                        </div>
-                    </div>
-                </div>
+            <div class="dados">
+                <h2 class="dados"> DADOS DA PESSOA:</h2>
             </div>
-
+            <!-- ROW 1 -->
+                <div class="row align-items-center">
+                    <!-- Informações à esquerda -->
+                    <div class="col-12 col-md-8 col-lg-9">
+                        <div class="row mb-2">
+                            <div class="col-12 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text">Nome:</span>
+                                    <span class="form-control" th:text="${desaparecido.nome}"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text">CPF:</span>
+                                    <span class="form-control" th:text="${desaparecido.cpf}"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text">Data de Nascimento:</span>
+                                    <span class="form-control" th:text="${desaparecido.dataNascimento}"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text">Gênero:</span>
+                                    <span class="form-control" th:text="${desaparecido.genero}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Imagem à direita -->  
+                    <div class="col-12 col-md-4 col-lg-3 text-center mb-3 mb-md-0">
+                        <figure style="margin: 0;">
+                            <img th:src="@{'/imagem/' + ${desaparecido.idDesaparecido}}" alt="Sem imagem enviada." style="max-width: 180px; max-height: 220px; width: 100%; object-fit: cover; border-radius: 8px;" />
+                        </figure>
+                    </div>
+                </div>
+              
             <!-- ROW 2 -->
             <div class="row">
                 <div class="caracteristicas">

@@ -7,4 +7,6 @@ public interface AppRepository extends CrudRepository<Desaparecido, String>
 {
     Desaparecido findByIdDesaparecido(long idDesaparecido); 
     Desaparecido deleteByIdDesaparecido(long idDesaparecido);
+    Desaparecido findByCpf(String cpf);
+    Desaparecido findByNome(String nome);
 }

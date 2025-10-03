@@ -120,4 +120,13 @@ public class CrudController {
         csr.deleteByIdDesaparecido(idDesaparecido);
         return "redirect:/lista";
     }
+
+    @GetMapping("/informacoes")
+    public ModelAndView pesquisar(@RequestParam("cpf") String cpf) {
+        Desaparecido desaparecido = csr.findByCpf(cpf);
+        ModelAndView mv = new ModelAndView("informacoes");
+        mv.addObject("desaparecido", desaparecido);
+        return mv;
+    }
+
 }
